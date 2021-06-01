@@ -10,4 +10,6 @@ out1 <- lassosum.pipeline(cor=cor, chr=dat0$Chr, pos=dat0$Pos, snp=dat0$SNP,
                         LDblocks = "ASN.hg19",destandardize=F) 
 
 v1 <- validate(out1, pheno=Y,covar=Covar) ### all result can be found in v1.
+print(v1$best.s); print(v1$best.lambda)  ## Best tuning parameters returned by lassosum.    
+ss1=cbind(out1$sumstats,v1$best.beta) ##This ss1 contains the best beta to construct PRS by lassosum. 
 
